@@ -1,0 +1,14 @@
+#N canvas 840 23 840 1005 12;
+#X obj 174 298 soundfiler;
+#X floatatom 174 322 5 0 0 0 - - -;
+#X obj 238 322 print;
+#X msg 175 239 read -resize ./909-samples/lt08.wav array3;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array3 31430 float 2;
+#X coords 0 1 31430 -1 200 140 1;
+#X restore 588 249 graph;
+#X obj 173 190 loadbang;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 3 0 0 0;
+#X connect 5 0 3 0;
