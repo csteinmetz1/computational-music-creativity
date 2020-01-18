@@ -1,0 +1,67 @@
+#N canvas 0 23 840 492 12;
+#X obj 115 85 hsl 128 15 48 108 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8300 1;
+#X obj 185 381 dac~;
+#X obj 338 374 metro 100;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array Scope 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 426 296 graph;
+#X obj 338 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 302 409 tabwrite~ Scope;
+#X floatatom 112 107 5 0 0 0 - - -;
+#X obj 192 267 *~;
+#X obj 462 165 line~;
+#X floatatom 462 113 5 0 0 0 - - -;
+#X obj 192 240 osc~;
+#X obj 266 136 osc~;
+#X obj 269 86 hsl 120 15 0 8 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8300 1;
+#X floatatom 266 110 5 0 0 0 - - -;
+#X obj 192 214 mtof~;
+#X obj 192 189 +~;
+#X obj 266 168 *~;
+#X obj 322 113 hsl 64 15 0 2 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3400 1;
+#X text 395 85 freq.;
+#X text 398 110 amp.;
+#X floatatom 648 265 5 0 0 0 - - -;
+#X obj 465 89 hsl 64 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 319 138 5 0 0 0 - - -;
+#X text 309 61 Vibrato;
+#X text 159 60 Pitch;
+#X text 465 64 Amplitude;
+#X msg 462 139 \$1 20;
+#X obj 649 317 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 648 289 - 100;
+#X obj 648 241 env~ 128;
+#X connect 0 0 6 0;
+#X connect 2 0 5 0;
+#X connect 4 0 2 0;
+#X connect 6 0 15 0;
+#X connect 7 0 5 0;
+#X connect 7 0 29 0;
+#X connect 7 0 1 0;
+#X connect 7 0 1 1;
+#X connect 8 0 7 1;
+#X connect 9 0 26 0;
+#X connect 10 0 7 0;
+#X connect 11 0 16 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 14 0 10 0;
+#X connect 15 0 14 0;
+#X connect 16 0 15 1;
+#X connect 17 0 22 0;
+#X connect 20 0 28 0;
+#X connect 21 0 9 0;
+#X connect 22 0 16 1;
+#X connect 26 0 8 0;
+#X connect 28 0 27 0;
+#X connect 29 0 20 0;

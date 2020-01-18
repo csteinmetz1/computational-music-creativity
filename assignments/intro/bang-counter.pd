@@ -1,0 +1,23 @@
+#N canvas 688 23 840 1005 12;
+#X obj 240 444 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 250 364 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 240 337 int 1;
+#X floatatom 240 406 5 0 0 0 - - -;
+#X obj 267 443 print count;
+#X obj 317 337 + 1;
+#X msg 272 292 0, f 4;
+#X obj 240 241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 317 292 reset;
+#X text 270 239 increment;
+#X text 350 337 increment amount;
+#X connect 2 0 3 0;
+#X connect 2 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 3 0 0 0;
+#X connect 5 0 2 1;
+#X connect 6 0 2 1;
+#X connect 7 0 2 0;
