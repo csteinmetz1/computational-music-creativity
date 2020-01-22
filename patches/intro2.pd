@@ -1,0 +1,100 @@
+#N canvas 840 23 840 1005 12;
+#X floatatom 48 65 5 30 10000 0 - - -;
+#X obj 48 116 osc~ 400;
+#X obj 48 322 dac~;
+#X obj 48 276 *~;
+#X floatatom 83 146 5 0 0 0 - - -;
+#X obj 83 170 dbtorms;
+#X msg 83 218 \$1 100;
+#X obj 83 244 line~;
+#X floatatom 83 194 5 0 0 0 - - -;
+#X text 101 271 line acts as a way to interpolate control values to
+the same sample rate as the audio clock. the line~ object will operate
+on a millisecond basis;
+#X obj 441 448 pack f f f f f f;
+#X floatatom 376 402 5 0 0 0 - - -;
+#X obj 441 483 print;
+#X floatatom 424 402 5 0 0 0 - - -;
+#X floatatom 472 402 5 0 0 0 - - -;
+#X floatatom 517 402 5 0 0 0 - - -;
+#X floatatom 563 402 5 0 0 0 - - -;
+#X floatatom 611 402 5 0 0 0 - - -;
+#X text 380 530 pack object still has only one hot inlet \, so the
+output will print ONLY when the first input changes;
+#X floatatom 163 193 5 0 0 0 - - -;
+#X obj 163 216 pack f 100;
+#X obj 163 242 print;
+#X text 138 218 ==;
+#X floatatom 55 425 5 0 0 0 - - -;
+#X obj 55 510 print;
+#X text 50 547 we can repeat variables and have as many as we want
+;
+#X obj 55 453 pack f s;
+#X symbolatom 109 425 10 0 0 0 - - -;
+#X msg 55 483 \$1 \$1 100 \$2;
+#X obj 48 91 mtof;
+#X text 513 74 you can store a portion of code inside a subpatch when
+you use the pd object to start (you can name this anything you want)
+;
+#N canvas 882 286 629 300 pow^2 0;
+#X obj 46 30 inlet;
+#X obj 51 251 outlet;
+#X obj 93 30 inlet;
+#X obj 139 30 inlet;
+#X text 194 22 the order of the inlets/outlets on the canvas defines
+their order in the subpatch;
+#X obj 46 83 t f f;
+#X obj 47 121 +;
+#X connect 0 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 6 1;
+#X connect 6 0 1 0;
+#X restore 436 100 pd pow^2;
+#X floatatom 436 131 5 0 0 0 - - -;
+#N canvas 882 286 629 300 pow^2 0;
+#X obj 46 30 inlet;
+#X obj 51 251 outlet;
+#X obj 93 30 inlet;
+#X obj 139 30 inlet;
+#X text 194 22 the order of the inlets/outlets on the canvas defines
+their order in the subpatch;
+#X obj 48 121 *;
+#X obj 46 83 t f f;
+#X connect 0 0 6 0;
+#X connect 5 0 1 0;
+#X connect 6 0 5 0;
+#X connect 6 1 5 1;
+#X restore 347 100 pd pow^2;
+#X floatatom 400 42 5 0 0 0 - - -;
+#X floatatom 347 131 5 0 0 0 - - -;
+#X text 333 167 but watch out \, because we can change one of these
+and it will not change the other one. here we changed the one on the
+right to be addition.;
+#X connect 0 0 29 0;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
+#X connect 3 0 2 1;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 3 1;
+#X connect 8 0 6 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 0;
+#X connect 13 0 10 1;
+#X connect 14 0 10 2;
+#X connect 15 0 10 3;
+#X connect 16 0 10 4;
+#X connect 17 0 10 5;
+#X connect 19 0 20 0;
+#X connect 20 0 7 0;
+#X connect 20 0 21 0;
+#X connect 23 0 26 0;
+#X connect 26 0 28 0;
+#X connect 27 0 26 1;
+#X connect 28 0 24 0;
+#X connect 29 0 1 0;
+#X connect 31 0 32 0;
+#X connect 33 0 35 0;
+#X connect 34 0 33 0;
+#X connect 34 0 31 0;

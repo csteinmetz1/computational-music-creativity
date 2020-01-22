@@ -1,0 +1,48 @@
+#N canvas 840 23 840 1005 12;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array1 8256 float 2;
+#X coords 0 1 8256 -1 200 140 1;
+#X restore 25 48 graph;
+#X obj 276 171 soundfiler;
+#X floatatom 276 201 5 0 0 0 - - -;
+#X obj 317 410 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 318 437 tabplay~ array1;
+#X msg 305 139 read ../assignments/sequencer/909-samples/bd01.wav array1
+;
+#X text 333 207 size in samples;
+#X obj 513 294 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 513 314 metro 100;
+#X obj 513 338 random 2;
+#X obj 513 362 sel 0 1;
+#X msg 275 99 read -resize ../assignments/sequencer/909-samples/bd01.wav
+array1 \, read -resize ../assignments/sequencer/909-samples/sd01.wav
+array2, f 68;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array2 14038 float 2;
+#X coords 0 1 14038 -1 200 140 1;
+#X restore 26 222 graph;
+#X obj 271 49 loadbang;
+#X obj 566 406 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 567 433 tabplay~ array2;
+#X obj 310 473 throw~ out;
+#X obj 578 485 throw~ out;
+#X obj 59 466 dac~;
+#X obj 63 426 catch~ out;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 16 0;
+#X connect 5 0 1 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 3 0;
+#X connect 10 1 14 0;
+#X connect 11 0 1 0;
+#X connect 13 0 11 0;
+#X connect 14 0 15 0;
+#X connect 15 0 17 0;
+#X connect 19 0 18 0;
+#X connect 19 0 18 1;
