@@ -1,0 +1,12 @@
+#N canvas 78 128 1024 744 12;
+#X obj 94 109 sel;
+#X obj 129 109 sel;
+#X obj 165 109 sel;
+#X obj 199 109 sel;
+#X obj 234 109 sel;
+#X obj 270 109 sel;
+#X obj 302 108 sel;
+#X obj 337 108 sel;
+#X obj 93 41 inlet;
+#X connect 8 0 0 0;
+#X connect 8 0 1 0;
