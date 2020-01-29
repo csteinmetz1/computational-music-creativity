@@ -3,8 +3,8 @@
 #X floatatom 202 435 5 0 0 0 - - -;
 #X obj 269 436 print;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array \$0-array 8256 float 2;
-#X coords 0 1 8256 -1 200 140 1 0 0;
+#X array \$0-array 19770 float 2;
+#X coords 0 1 19770 -1 200 140 1 0 0;
 #X restore 50 496 graph;
 #X obj 8 289 inlet;
 #X obj 50 443 throw~ mix;
