@@ -18,6 +18,12 @@
 #X obj 507 41 inlet;
 #X text 147 18 count;
 #X obj 342 153 outlet;
+#X text 345 17 steps;
+#X text 577 26 in here we take in the values from the toggles each
+toggle is either 0 or a value from 1 to 8 depending on which step in
+the sequence. this will then output a bang anytime the current step
+matches one of the selected steps from the toggles.;
+#X text 394 156 bang to trigger the instrument;
 #X connect 0 0 18 0;
 #X connect 1 0 18 0;
 #X connect 2 0 18 0;

@@ -1,115 +1,137 @@
-#N canvas 601 23 1079 1005 12;
-#X obj 439 320 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#N canvas 356 23 1079 1005 12;
+#X obj 119 102 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 546 397 hradio 27 1 0 8 empty empty empty 0 -8 0 10 -262144
--1 -1 2;
-#X floatatom 473 317 5 0 0 0 - - -;
-#X text 522 317 b.p.m (freq);
-#X text 385 318 on/off;
-#X obj 473 292 int 120;
-#X obj 473 267 loadbang;
-#X obj 545 462 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 217 178 hradio 27 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 7;
+#X floatatom 144 98 5 0 0 0 - - -;
+#X text 193 98 b.p.m (freq);
+#X text 62 100 on/off;
+#X obj 144 73 int 120;
+#X obj 144 48 loadbang;
+#X obj 216 243 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 182 499 dac~, f 7;
-#X obj 572 462 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 767 331 dac~, f 7;
+#X obj 243 243 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 2;
-#X obj 599 462 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 270 243 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 3;
-#X obj 626 462 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 4
+#X obj 297 243 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 4;
-#X obj 653 462 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 5
+#X obj 324 243 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 5;
-#X obj 680 462 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 351 243 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 6;
-#X obj 707 462 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 7
+#X obj 378 243 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 7;
-#X obj 734 462 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 8
+#X obj 405 243 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 8;
-#X obj 454 353 step;
-#X floatatom 762 470 5 1 9 0 - - -;
-#X obj 718 522 instrument bd;
-#X text 810 471 kick;
-#X obj 550 554 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 119 125 step;
+#X floatatom 433 251 5 1 9 0 - - -;
+#X obj 389 303 instrument bd;
+#X text 481 252 kick;
+#X obj 221 335 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 369 432 + 1;
-#X obj 577 554 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 2
+#X obj 119 248 + 1;
+#X obj 248 335 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 2;
-#X obj 604 554 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 3
+#X obj 275 335 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 3;
-#X obj 631 554 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 302 335 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 4;
-#X obj 658 554 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 329 335 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 5;
-#X obj 685 554 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 6
+#X obj 356 335 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 6;
-#X obj 712 554 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 383 335 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 7;
-#X obj 739 554 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 410 335 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 8;
-#X floatatom 767 561 5 1 9 0 - - -;
-#X text 805 563 snare;
-#X obj 723 609 instrument sd;
-#X obj 524 584 mselect, f 31;
-#X obj 522 493 mselect, f 31;
-#X obj 549 642 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X floatatom 438 342 5 1 9 0 - - -;
+#X text 476 344 snare;
+#X obj 394 390 instrument sd;
+#X obj 195 365 mselect, f 31;
+#X obj 190 274 mselect, f 31;
+#X obj 220 423 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 576 642 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 247 423 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 2;
-#X obj 603 642 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 274 423 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 3;
-#X obj 630 642 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 4
+#X obj 301 423 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 4;
-#X obj 657 642 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 328 423 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 5;
-#X obj 684 642 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 355 423 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 6;
-#X obj 711 642 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 382 423 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 7;
-#X obj 738 642 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 409 423 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 8;
-#X floatatom 766 649 5 1 4 0 - - -;
-#X obj 523 672 mselect, f 31;
-#X text 804 651 clap;
-#X obj 722 700 instrument cp;
-#X obj 555 735 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X floatatom 437 430 5 1 4 0 - - -;
+#X obj 194 453 mselect, f 31;
+#X text 475 432 clap;
+#X obj 393 481 instrument cp;
+#X obj 226 516 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 582 735 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 2
+#X obj 253 516 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 2;
-#X obj 609 735 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 3
+#X obj 280 516 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 3;
-#X obj 636 735 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 4
+#X obj 307 516 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 4;
-#X obj 663 735 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 5
+#X obj 334 516 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 5;
-#X obj 690 735 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 6
+#X obj 361 516 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 6;
-#X obj 717 735 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 7
+#X obj 388 516 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 7;
-#X obj 744 735 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 8
+#X obj 415 516 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 8;
-#X floatatom 772 742 5 1 4 0 - - -;
-#X obj 529 765 mselect, f 31;
-#X text 810 744 hats;
-#X obj 728 796 instrument hh;
-#X obj 246 420 line~;
-#X floatatom 246 345 5 0 0 0 - - -;
-#X obj 249 320 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 12700 1;
-#X msg 246 371 \$1 20;
-#X obj 64 390 catch~ mixL;
-#X obj 154 388 catch~ mixR;
-#X text 166 320 amplitude;
-#X obj 181 458 *~;
-#X obj 228 458 *~;
-#X obj 865 471 hsl 64 15 0.015708 1.5708 1 1 empty empty empty -2 -8
+#X floatatom 443 523 5 1 4 0 - - -;
+#X obj 200 546 mselect, f 31;
+#X text 481 525 hats;
+#X obj 399 577 instrument hh;
+#X obj 831 252 line~;
+#X floatatom 831 177 5 0 0 0 - - -;
+#X obj 732 153 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4100 1;
+#X msg 831 203 \$1 20;
+#X obj 649 222 catch~ mixL;
+#X obj 739 223 catch~ mixR;
+#X text 652 149 amplitude;
+#X obj 766 290 *~;
+#X obj 813 290 *~;
+#X obj 536 252 hsl 64 15 0.015708 1.5708 1 1 empty empty empty -2 -8
 0 10 -262144 -1 -1 5400 1;
-#X text 880 437 pan;
-#X obj 860 566 hsl 64 15 0.015708 1.5708 1 1 empty empty empty -2 -8
+#X text 551 218 pan;
+#X obj 531 347 hsl 64 15 0.015708 1.5708 1 1 empty empty empty -2 -8
 0 10 -262144 -1 -1 5100 1;
-#X obj 858 654 hsl 64 15 0.015708 1.5708 1 1 empty empty empty -2 -8
+#X obj 529 435 hsl 64 15 0.015708 1.5708 1 1 empty empty empty -2 -8
 0 10 -262144 -1 -1 1300 1;
-#X obj 859 746 hsl 64 15 0.015708 1.5708 1 1 empty empty empty -2 -8
+#X obj 530 527 hsl 64 15 0.015708 1.5708 1 1 empty empty empty -2 -8
 0 10 -262144 -1 -1 1600 1;
+#X text 625 557 Note: my implementation is a bit lacking with regards
+to flexibility here. If I had a bit more time I would like to improve
+this. Since not all intstruments have samples that go frmo 00-09 there
+will be an error encoutered when changing the slider if the limts are
+not set properly for your instrument. We need a way to handle this
+more dynamically.;
+#X text 298 42 You can start and stop the machine with the toggle on
+the left. Then set the b.p.m. with the number box. Then to make a beat
+\, click the toggle box of an instrument on the step you want it to
+be played. You can also use the slider on the right to control the
+overall level of the output. And you can pan each source using its
+pan slider.;
+#X text 755 48 supported intruments bd - bass drum cp - clap cr - crash
+hh - high hat ht - high tom lt - low tom mt - mid tom oh - open hat
+rd - ride rs - rim shot sd - snare;
+#X text 627 365 this is my very simple drum machine. we provide four
+different instruments. they can be changed to other supported instruments
+by editing the creation argument. You can change which samples for
+each instrument type are used by using the number boxes next to the
+toggles.;
+#X text 431 224 sample;
+#X text 174 183 step;
 #X connect 0 0 16 0;
 #X connect 2 0 16 1;
 #X connect 5 0 2 0;
@@ -126,8 +148,8 @@
 #X connect 16 0 21 0;
 #X connect 17 0 18 1;
 #X connect 20 0 32 1;
-#X connect 21 0 32 0;
 #X connect 21 0 33 0;
+#X connect 21 0 32 0;
 #X connect 21 0 43 0;
 #X connect 21 0 55 0;
 #X connect 22 0 32 2;

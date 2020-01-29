@@ -1,4 +1,4 @@
-#N canvas 20 129 778 796 12;
+#N canvas 20 129 1042 793 12;
 #X obj 202 412 soundfiler;
 #X floatatom 202 435 5 0 0 0 - - -;
 #X obj 269 436 print;
@@ -28,18 +28,30 @@
 #X obj 210 259 print;
 #X obj 191 104 symbol \$1;
 #X msg 276 211 \$1;
-#X obj 268 661 throw~ mixL;
+#X obj 285 657 throw~ mixL;
 #X obj 381 592 line~;
 #X floatatom 380 510 5 0 0 0 - - -;
 #X msg 381 569 \$1 20;
 #X obj 374 657 throw~ mixR;
-#X obj 268 633 *~;
+#X obj 285 629 *~;
 #X obj 381 545 cos;
 #X obj 437 544 sin;
 #X msg 437 568 \$1 20;
 #X obj 437 594 line~;
 #X obj 374 630 *~;
 #X obj 380 482 inlet;
+#X text 510 489 here we use constant power pan-law in order to pan
+the mono source from the instrument between the two output channels.
+in the main patch \, there is a slider that ranges from 0 to pi/2 connected.
+;
+#X text 451 47 there is room for improvement here. my algorithm assumes
+all samples are between the name range of 0 to 9 \,;
+#X text 443 228 NOTE: this part assume that there is a directory containing
+the samples in the same directory as the main patch.;
+#X text 19 11 there is a single creation argument which is a two letter
+symbol to specify the drum type;
+#X obj 433 107 loadbang;
+#X obj 433 132 int 1;
 #X connect 0 0 1 0;
 #X connect 0 1 2 0;
 #X connect 4 0 17 0;
@@ -76,3 +88,5 @@
 #X connect 35 0 36 1;
 #X connect 36 0 30 0;
 #X connect 37 0 28 0;
+#X connect 42 0 43 0;
+#X connect 43 0 14 0;
