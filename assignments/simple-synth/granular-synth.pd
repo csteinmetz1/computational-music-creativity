@@ -1,0 +1,12 @@
+#N canvas 1018 162 544 318 12;
+#X obj 160 231 catch~ mixL;
+#X obj 248 231 catch~ mixR;
+#X obj 202 268 dac~;
+#X obj 39 31 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 12700 1;
+#X obj 125 96 granular, f 29;
+#X msg 325 35 grains/xp.wav;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 3 0 4 7;
+#X connect 5 0 4 8;
