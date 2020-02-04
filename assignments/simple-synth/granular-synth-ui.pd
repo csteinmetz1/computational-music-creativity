@@ -1,62 +1,80 @@
 #N canvas 0 23 1680 1005 12;
-#X obj 351 282 hsl 200 20 0 1 0 0 pan-spray empty empty -2 -8 0 10
--262144 -1 -1 39900 1;
-#X obj 351 206 hsl 200 20 500 2000 0 0 pitch empty empty -2 -8 0 10
--262144 -1 -1 10900 1;
-#X obj 351 245 hsl 200 20 0 0.2 0 0 size empty empty -2 -8 0 10 -262144
--1 -1 9900 1;
+#X obj 351 282 hsl 200 20 0 1 0 0 pan-spray pan-spray empty -2 -8 0
+10 -262144 -1 -1 36600 1;
+#X obj 351 206 hsl 200 20 500 2000 0 0 pitch pitch empty -2 -8 0 10
+-262144 -1 -1 13266 1;
+#X obj 351 245 hsl 200 20 0 0.1 0 0 size size empty -2 -8 0 10 -262144
+-1 -1 22200 1;
 #X text 559 244 size;
 #X text 556 204 pitch;
 #X text 560 282 pan spray;
-#X obj 108 280 hsl 200 20 0 250 0 0 spray empty empty -2 -8 0 10 -262144
--1 -1 24000 1;
+#X obj 108 280 hsl 200 20 0 250 0 0 spray spray empty -2 -8 0 10 -262144
+-1 -1 2800 1;
 #X text 60 282 spray;
 #X obj 108 244 hsl 200 20 0 1 0 0 start start empty -2 -8 0 10 -262144
--1 -1 0 1;
+-1 -1 19264 1;
 #X text 59 243 start;
-#X obj 108 204 hsl 200 20 0.25 100 0 0 density empty empty -2 -8 0
-10 -262144 -1 -1 10700 1;
+#X obj 108 204 hsl 200 20 0.25 100 0 0 density density empty -2 -8
+0 10 -262144 -1 -1 6400 1;
 #X text 45 203 density;
-#X obj 106 399 s grain;
-#X text 104 357 grain filepath;
+#X obj 91 404 s grain;
+#X text 158 358 grain filepath;
 #X obj 121 149 tgl 30 0 enable empty empty 17 7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #X text 70 155 on/off;
 #X text 105 46 volume;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array scope 100 float 3;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0;
+#A 0 -0.134922 -0.119304 -0.100304 -0.0825264 -0.0625639 -0.0431701
+-0.0370163 -0.0378022 -0.0324725 -0.0260341 -0.0243214 -0.0238551 -0.0224109
+-0.0238091 -0.0322119 -0.0426403 -0.0487481 -0.0547192 -0.0617871 -0.063504
+-0.0620064 -0.0670248 -0.0781458 -0.0813595 -0.0707749 -0.0585449 -0.049746
+-0.0340818 -0.00930118 0.0174665 0.0434042 0.0677195 0.0911005 0.118969
+0.152636 0.18133 0.197186 0.209384 0.224282 0.231501 0.228439 0.226378
+0.227788 0.224016 0.209386 0.190466 0.175316 0.159297 0.141082 0.129612
+0.121647 0.112016 0.107996 0.109508 0.11429 0.13145 0.159777 0.181415
+0.188345 0.195088 0.210222 0.212769 0.197851 0.197086 0.209143 0.197278
+0.172415 0.17317 0.183805 0.16235 0.121078 0.105928 0.11526 0.109444
+0.0871091 0.0770054 0.0773093 0.0661679 0.0440265 0.0227306 0.00296275
+-0.0167726 -0.0362362 -0.0591582 -0.0785136 -0.0832114 -0.0885517 -0.109373
+-0.122071 -0.108785 -0.0942638 -0.098628 -0.103577 -0.0917629 -0.0833094
+-0.0965824 -0.105047 -0.0874238 -0.0755298 -0.0910738;
 #X coords 0 1 100 -1 200 140 1;
 #X restore 201 40 graph;
-#X obj 158 48 vsl 30 128 0 1 0 0 volume empty empty 0 -9 0 10 -262144
--1 -1 8700 1;
-#X obj 423 142 hsl 128 15 0 0.5 0 0 wet empty empty -2 -8 0 10 -262144
--1 -1 13900 1;
+#X obj 158 48 vsl 30 128 0 1 0 0 volume volume empty 0 -9 0 10 -262144
+-1 -1 15000 1;
+#X obj 423 142 hsl 128 15 0 0.5 0 0 wet wet empty -2 -8 0 10 -262144
+-1 -1 18400 1;
 #X text 561 139 wet, f 6;
-#X obj 423 165 hsl 128 15 0 1 0 0 roomsize empty empty -2 -8 0 10 -262144
--1 -1 21000 1;
+#X obj 423 165 hsl 128 15 0 1 0 0 roomsize roomsize empty -2 -8 0 10
+-262144 -1 -1 17780 1;
 #X text 559 162 room size;
-#X obj 422 119 hsl 128 15 0 0.5 0 0 dry empty empty -2 -8 0 10 -262144
--1 -1 19800 1;
+#X obj 422 119 hsl 128 15 0 0.5 0 0 dry dry empty -2 -8 0 10 -262144
+-1 -1 21600 1;
 #X text 559 116 dry;
 #X text 459 96 reverb;
-#X obj 163 399 granular-synth;
+#X obj 148 404 granular-synth;
 #X obj 104 319 hradio 14 1 0 32 empty n-grain empty 0 -8 0 10 -262144
--1 -1 11;
+-1 -1 9;
 #X obj 300 378 bng 15 250 50 0 auto-reset empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 300 396 bng 15 250 50 0 auto-start empty empty 17 7 0 10 -262144
 -1 -1;
 #X floatatom 366 375 5 1 1000 0 - - auto-seconds;
-#X obj 106 420 auto, f 5;
+#X obj 154 427 auto, f 5;
 #X text 406 375 seconds;
 #X text 319 395 start;
 #X text 319 375 reset;
 #X text 334 353 automation;
 #X floatatom 366 396 5 0 0 0 - start -;
 #X text 407 395 progress;
-#X msg 105 378 grains/xp.wav;
-#X connect 38 0 12 0;
+#X obj 90 427 defaults;
+#X floatatom 492 375 3 1 32 0 - d-voices voices;
+#X text 520 374 voices;
+#X obj 91 359 loadbang;
+#X obj 493 399 bng 15 250 50 0 set-default empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 519 398 default;
+#X msg 91 382 grains/concierto.wav;
+#X connect 41 0 44 0;
+#X connect 44 0 12 0;

@@ -1,12 +1,12 @@
 #N canvas 840 23 840 1005 12;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array \$0-array 389041 float 2;
-#X coords 0 1 389041 -1 200 140 1 0 0;
+#X array \$0-array 460601 float 2;
+#X coords 0 1 460601 -1 200 140 1 0 0;
 #X restore 604 295 graph;
 #X obj 610 183 soundfiler;
 #X floatatom 610 214 10 0 0 0 - - -;
 #X obj 606 441 hsl 200 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3700 1;
+-1 -1 0 1;
 #X obj 182 810 line~;
 #X obj 266 259 t b b b;
 #X obj 41 542 *;
@@ -120,7 +120,10 @@
 #X msg 150 113 1;
 #X obj 164 136 /;
 #X obj 150 159 * 1000;
+#X obj 719 244 s set-default;
+#X obj 712 211 t b;
 #X connect 1 0 2 0;
+#X connect 1 0 116 0;
 #X connect 2 0 84 0;
 #X connect 3 0 33 0;
 #X connect 4 0 61 0;
@@ -221,3 +224,4 @@
 #X connect 113 0 114 0;
 #X connect 114 0 110 0;
 #X connect 114 0 73 0;
+#X connect 116 0 115 0;
