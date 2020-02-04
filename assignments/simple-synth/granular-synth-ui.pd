@@ -1,1 +1,50 @@
-#N canvas 2087 -307 800 670 12;
+#N canvas 0 23 1680 1005 12;
+#X obj 351 282 hsl 200 20 0 1 0 0 pan-spray empty empty -2 -8 0 10
+-262144 -1 -1 39900 1;
+#X obj 351 206 hsl 200 20 0 2 0 0 pitch empty empty -2 -8 0 10 -262144
+-1 -1 25900 1;
+#X obj 351 245 hsl 200 20 0 0.4 0 0 size empty empty -2 -8 0 10 -262144
+-1 -1 38500 1;
+#X text 559 244 size;
+#X text 556 204 pitch;
+#X text 560 282 pan spray;
+#X obj 108 280 hsl 200 20 0 500 0 0 spray empty empty -2 -8 0 10 -262144
+-1 -1 14600 1;
+#X text 60 282 spray;
+#X obj 108 244 hsl 200 20 0 1 0 0 start empty empty -2 -8 0 10 -262144
+-1 -1 30500 1;
+#X text 59 243 start;
+#X obj 108 204 hsl 200 20 10 500 0 0 density empty empty -2 -8 0 10
+-262144 -1 -1 39900 1;
+#X text 45 203 density;
+#X obj 106 399 s grain;
+#X text 104 357 grain filepath;
+#X obj 121 149 tgl 30 0 enable empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 70 155 on/off;
+#X text 105 46 volume;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array scope 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 201 40 graph;
+#X obj 158 48 vsl 30 128 0 1 0 0 volume empty empty 0 -9 0 10 -262144
+-1 -1 21900 1;
+#X obj 423 142 hsl 128 15 0 0.5 0 0 wet empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 561 139 wet, f 6;
+#X obj 423 165 hsl 128 15 0 1 0 0 roomsize empty empty -2 -8 0 10 -262144
+-1 -1 25500 1;
+#X text 559 162 room size;
+#X obj 422 119 hsl 128 15 0 0.5 0 0 dry empty empty -2 -8 0 10 -262144
+-1 -1 25500 1;
+#X text 559 116 dry;
+#X text 459 96 reverb;
+#X obj 163 399 granular-synth;
+#X obj 104 319 hradio 14 1 0 32 empty n-grain empty 0 -8 0 10 -262144
+-1 -1 29;
+#X msg 106 378 grains/iphone.wav;
+#X connect 28 0 12 0;
