@@ -1,8 +1,8 @@
-#N canvas 840 23 840 1005 12;
-#X obj 299 132 catch~ mixL;
-#X obj 320 157 catch~ mixR;
-#X obj 261 344 dac~;
-#X obj 27 116 global-trigger, f 15;
+#N canvas 3 23 1661 1005 12;
+#X obj 630 114 catch~ mixL;
+#X obj 715 115 catch~ mixR;
+#X obj 608 298 dac~;
+#X obj 1234 209 global-trigger, f 15;
 #X obj 17 428 granular, f 48;
 #X obj 17 407 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -13,8 +13,8 @@
 #X obj 212 385 r spray;
 #X obj 268 385 r pan-spray;
 #X obj 352 385 r grain;
-#X obj 77 89 r density;
-#X floatatom 150 90 5 1 32 0 - - -;
+#X obj 1284 182 r density;
+#X floatatom 1357 183 5 1 32 0 - - -;
 #X obj 19 498 granular, f 48;
 #X obj 19 477 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -165,11 +165,11 @@
 #X obj 422 726 r b13;
 #X obj 423 795 r b14;
 #X obj 423 862 r b15;
-#X obj 249 134 line~;
-#X floatatom 249 82 5 0 0 0 - - -;
-#X msg 249 108 \$1 20;
-#X obj 260 305 *~;
-#X obj 291 304 *~;
+#X obj 530 193 line~;
+#X floatatom 530 141 5 0 0 0 - - -;
+#X msg 530 167 \$1 20;
+#X obj 607 259 *~;
+#X obj 638 258 *~;
 #X obj 833 428 granular, f 48;
 #X obj 833 407 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -330,25 +330,38 @@
 #X obj 1246 724 r b29;
 #X obj 1246 793 r b30;
 #X obj 1247 860 r b31;
-#X obj 323 243 freeverb~;
-#X msg 460 139 width 1;
-#X msg 459 114 damping 0.8;
-#X obj 150 65 r voices;
-#X obj 27 64 r enable;
-#X obj 27 94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
-;
-#X obj 249 56 r volume;
-#X obj 459 164 r wet;
-#X msg 459 187 wet \$1;
-#X obj 458 56 r roomsize;
-#X msg 457 81 roomsize \$1;
-#X obj 106 312 metro 100;
-#X obj 106 293 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 728 207 freeverb~;
+#X msg 895 221 width 1;
+#X msg 894 246 damping 0.8;
+#X obj 1357 158 r voices;
+#X obj 1234 157 r enable;
+#X obj 1234 187 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 530 115 r volume;
+#X obj 948 120 r wet;
+#X msg 948 143 wet \$1;
+#X obj 858 120 r roomsize;
+#X msg 858 144 roomsize \$1;
+#X obj 453 266 metro 100;
+#X obj 453 247 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 136 345 tabwrite~ scope;
-#X obj 458 216 r dry;
-#X msg 458 239 dry \$1;
-#X obj 106 268 loadbang;
+#X obj 483 299 tabwrite~ scope;
+#X obj 1005 120 r dry;
+#X msg 1005 143 dry \$1;
+#X obj 453 222 loadbang;
+#X text 43 64 this is the main core of the synth;
+#X text 152 360 voices 0-7;
+#X text 575 354 voices 8-15;
+#X text 983 355 voices 16-23;
+#X text 1396 351 voices 24-31;
+#X text 421 117 master volume;
+#X text 215 299 this writes to the scope on UI patch;
+#X obj 895 198 loadbang;
+#X text 606 86 each granular sends audio here;
+#X text 850 92 reverb with simple user controls;
+#X text 46 84 we have up to 32 voices;
+#X text 1116 239 this controls the global triggering of the each granular
+;
 #X connect 0 0 299 0;
 #X connect 1 0 299 1;
 #X connect 5 0 4 0;
@@ -633,3 +646,5 @@
 #X connect 313 0 314 0;
 #X connect 314 0 299 0;
 #X connect 315 0 311 0;
+#X connect 323 0 300 0;
+#X connect 323 0 301 0;

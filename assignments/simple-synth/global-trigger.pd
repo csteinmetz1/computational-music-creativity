@@ -1,4 +1,4 @@
-#N canvas 840 23 840 1005 12;
+#N canvas 21 23 840 1005 12;
 #X obj 41 446 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 35 180 int 1;
@@ -141,7 +141,7 @@
 #X obj 430 607 s b13;
 #X obj 503 608 s b14;
 #X obj 588 605 s b15;
-#X obj 35 135 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 35 135 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 152 176 inlet;
 #X obj 29 748 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -283,6 +283,19 @@
 #X msg 113 78 1;
 #X obj 127 101 /;
 #X obj 127 126 * 1000;
+#X text 186 259 the system below is a crude way to selectively send
+bangs to each granular module to tell it to play its grain. We take
+in the counter value which is mod n \, where n is the number of voices
+and then compare this value to the voice's id (0-31). If a match we
+send a bang to that graular voice;
+#X text 251 24 we take in the on/off control as well as the period
+in ms. this is a very simple system based around a metro that is firing
+once every n ms given the period. if we had just a single voice this
+would trigger a single grain to play. the issue is if the next bang
+comes before the previous grain has finished playing through \, there
+will be a click. We don't want to shorten the grain size because this
+changes how much overlap we can get. to address this we have many voices
+(32!);
 #X connect 0 0 110 0;
 #X connect 1 0 2 0;
 #X connect 1 0 3 0;
