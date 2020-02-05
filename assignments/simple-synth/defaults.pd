@@ -15,7 +15,6 @@
 #X msg 426 121 0.67;
 #X obj 493 142 s dry;
 #X obj 537 142 s wet;
-#X msg 493 117 1;
 #X msg 538 119 0;
 #X msg 579 119 0.7;
 #X msg 34 115 1;
@@ -33,27 +32,28 @@ the parameters didn't reset when loading a new grain \, but in my opinion
 this is an okay behaviour because it gives us a nice starting point
 when we load a difference grain (since some of the controls depend
 on the volume \, length \, quality \, etc. of the grain.);
+#X msg 493 117 0.5;
 #X connect 2 0 1 0;
 #X connect 4 0 3 0;
-#X connect 6 0 18 0;
+#X connect 6 0 17 0;
 #X connect 6 0 2 0;
 #X connect 6 0 4 0;
-#X connect 6 0 20 0;
+#X connect 6 0 19 0;
 #X connect 6 0 8 0;
 #X connect 6 0 10 0;
 #X connect 6 0 12 0;
+#X connect 6 0 26 0;
 #X connect 6 0 15 0;
 #X connect 6 0 16 0;
-#X connect 6 0 17 0;
-#X connect 6 0 19 0;
+#X connect 6 0 18 0;
 #X connect 8 0 7 0;
 #X connect 10 0 9 0;
 #X connect 12 0 11 0;
-#X connect 15 0 13 0;
-#X connect 16 0 14 0;
-#X connect 17 0 22 0;
-#X connect 18 0 0 0;
-#X connect 19 0 23 0;
-#X connect 20 0 5 0;
-#X connect 21 0 6 0;
-#X connect 24 0 21 0;
+#X connect 15 0 14 0;
+#X connect 16 0 21 0;
+#X connect 17 0 0 0;
+#X connect 18 0 22 0;
+#X connect 19 0 5 0;
+#X connect 20 0 6 0;
+#X connect 23 0 20 0;
+#X connect 26 0 13 0;
