@@ -1,0 +1,23 @@
+#N canvas 327 210 414 371 10;
+#X text 33 22 we want to keep the 3 last values and store -2-1 as the
+key and 0 as the value;
+#X obj 79 68 inlet;
+#X obj 79 95 list-abs/last-x 2;
+#X obj 79 149 unpack 0 0, f 16;
+#X msg 79 122 \$2 \$1;
+#X obj 79 303 outlet;
+#X obj 79 223 pack s s;
+#X symbolatom 79 277 10 0 0 0 - - -;
+#X obj 79 186 l2s;
+#X obj 172 186 l2s;
+#X msg 79 250 symbol \$1_\$2;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 8 0;
+#X connect 3 1 9 0;
+#X connect 4 0 3 0;
+#X connect 6 0 10 0;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 9 0 6 1;
+#X connect 10 0 7 0;
