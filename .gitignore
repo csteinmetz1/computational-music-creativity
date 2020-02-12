@@ -1,5 +1,6 @@
 # junk
 .DS_Store
+.ipynb_checkpoints
 
 # data 
 *.wav
