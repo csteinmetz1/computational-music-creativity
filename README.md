@@ -23,12 +23,12 @@ Materials for the Computational Music Creativity course at UPF-MTG (Spring 2020)
 
 ## Granular synthesizer
 
-<img src="img/" alt="granular" width="30%"
+<img src="assignments/granular-synth/ui.png" alt="granular" width="50%">
 
-[Project](assignments/granular-synth)
+[Project](assignments/granular-synth) | [Demo](https://youtu.be/iii65FQ2uug)
 
 ## Markov composition
 
-<img src="img/" alt="markov" width="30%"
+<img src="assignments/markov/img/main.png" alt="markov" width="50%">
 
-[Project](assignments/markov)
+[Project](assignments/markov) | [Demo](https://youtu.be/iXz9Xa6568Q)
