@@ -1,0 +1,22 @@
+#N canvas 694 129 606 454 12;
+#X obj 216 119 metro 500;
+#X obj 354 116 cyclone/coll rit;
+#C restore;
+#X msg 365 39 0 125 \, 1 250 \, 2 500 \,;
+#X msg 395 63 clear;
+#X obj 215 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 214 98 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X floatatom 293 62 5 0 0 0 - - -;
+#X floatatom 269 195 5 0 0 0 - - -;
+#X obj 268 167 random 3;
+#X connect 0 0 4 0;
+#X connect 0 0 8 0;
+#X connect 1 0 6 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 1;
+#X connect 7 0 1 0;
+#X connect 8 0 7 0;
