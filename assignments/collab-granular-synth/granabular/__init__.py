@@ -30,15 +30,11 @@ def create_app(test_config=None):
     def hello():
         if request.method == 'GET':
             url_for('static', filename='js/tx.js')
-            message = "Hello, World"
+            message = "Granabular"
             return render_template('index.html', message=message)
         if request.method == 'POST':
-            """modify/update the information for <user_id>"""
-            # you can use <user_id>, which is a str but could
-            # changed to be int or whatever you want, along
-            # with your lxml knowledge to make the required
-            # changes
-            data = request.form # a multidict containing POST data
-            print(data)
+            data = request.form
+            print(request.form)
+            return "ok"
 
     return app
