@@ -1,0 +1,21 @@
+<!-- templates/index.html -->
+<html>
+  <head>
+    <title>Flask Shop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{message}}</h1>
+      <form>
+        <div class="form-group">
+          <label for="formControlRange">Example Range input</label>
+          <input id="myRange" type="range" class="form-control-range" id="formControlRange">
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="{{ url_for('static', filename='js/tx.js') }}"></script>
+</html>
