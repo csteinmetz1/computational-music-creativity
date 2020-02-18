@@ -1,18 +1,15 @@
 <!-- templates/index.html -->
 <html>
   <head>
-    <title>Flask Shop</title>
+    <title>Granabular</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
   </head>
   <body>
     <div class="parent">
       <div>
         <h1 style="text-align: center; font-size: 5em; margin-bottom: 25px;">Granabular</h1>
-
+        
         <form id="form">
           <div class="form-group" >
             <input id="myRange" type="range" name="foo" class="form-control-range" id="formControlRange">
@@ -22,11 +19,10 @@
         <a class="btn" id="download">Download</a>
         <a class="btn" id="stop">Stop</a>
       </div>
-
-   
     </div>
 
   </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="{{ url_for('static', filename='js/tx.js') }}"></script>
   <script src="{{ url_for('static', filename='js/rec.js') }}"></script>
 

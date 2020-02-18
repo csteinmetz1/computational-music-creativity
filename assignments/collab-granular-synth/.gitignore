@@ -3,6 +3,7 @@ env/
 __pycache__/
 
 instance/
+grains/
 
 .pytest_cache/
 .coverage

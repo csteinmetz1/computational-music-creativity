@@ -15,10 +15,10 @@ const handleSuccess = function(stream) {
 
   mediaRecorder.addEventListener('dataavailable', function(e) {
     if (e.data.size > 0) {
+      console.log(e.data.size);
       recordedChunks.push(e.data);
     }
 
-    console.log(shouldStop, stopped)
     if(shouldStop === true && stopped === false) {
       mediaRecorder.stop();
       console.log("stop")
@@ -27,11 +27,27 @@ const handleSuccess = function(stream) {
   });
 
   mediaRecorder.addEventListener('stop', function() {
-    downloadLink.href = URL.createObjectURL(new Blob(recordedChunks));
-    downloadLink.download = 'acetest.wav';
+    const audioBlob = new Blob(recordedChunks);
+    const link = URL.createObjectURL(audioBlob);
+    downloadLink.href = link;
+    downloadLink.download = 'test.wav';
+
+    // pack the Blob into a form
+    var fd = new FormData();
+    fd.append('fname', 'test.wav');
+    fd.append('audioData', audioBlob);
+
+    // send download link to the server
+    $.ajax({
+      type: "POST",
+      url: "/upload",
+      data: fd,
+      processData: false,
+      contentType: false
+    })
   });
 
-  mediaRecorder.start();
+  mediaRecorder.start(1000);
 };
 
 navigator.mediaDevices.getUserMedia({ audio: true, video: false })
