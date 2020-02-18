@@ -66,7 +66,6 @@ const handleSuccess = function(stream) {
 // at random interval grab a new grain and send to the server
 (function loop() {
     var rand = Math.round(Math.random() * 60000) + 10000;
-    rand = 10000;
     console.log("next grain in", rand/1000, "sec");
     setTimeout(function() {
             grabGrain();

@@ -16,3 +16,5 @@ Then also, at some random time we will want to update the grain from each user.
 
 use: pyOSC, Flask, 
 Record in JS - https://developers.google.com/web/fundamentals/media/recording-audio?hl=en
+https://osc4py3.readthedocs.io/en/latest/userdoc.html#introduction
+http://write.flossmanuals.net/pure-data/osc/
