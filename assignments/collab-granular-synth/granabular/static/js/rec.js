@@ -1,13 +1,14 @@
 let shouldStop = false;
 let stopped = false;
 let onair = document.getElementById("onair")
-let bg = document.getElementById("background")
+let container = document.getElementById("container")
 
 const grabGrain = function() {
-  $(onair).fadeIn("fast", function() {
+  $(onair).fadeIn("slow", function() {
     $(this).show().css({visibility: "visible"});
   });
-  $(bg).show().css({background: "linear-gradient(270deg, #d25353, #d1e17a);"})
+  $(container).removeClass("normal")
+  $(container).addClass("rec")
 
   stopped = false;
   navigator.mediaDevices.getUserMedia({ audio: true, video: false })
@@ -26,10 +27,11 @@ const handleSuccess = function(stream) {
     }
 
     if(recordedChunks.length >= 3 && stopped === false) {
-      $(onair).fadeOut("fast", function() {
+      $(onair).fadeOut("slow", function() {
         $(this).show().css({visibility: "hidden"});
       });
-      $(bg).show().css({background: "linear-gradient(270deg, #93fbf5, #e4a261)"})
+      $(container).removeClass("rec")
+      $(container).addClass("normal")
       mediaRecorder.stop();
       console.log("stop recording")
       stopped = true;
