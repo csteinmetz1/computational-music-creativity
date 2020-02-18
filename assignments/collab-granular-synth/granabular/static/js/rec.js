@@ -1,12 +1,18 @@
 let shouldStop = false;
 let stopped = false;
-const downloadLink = document.getElementById('download');
-const stopButton = document.getElementById('stop');
+let onair = document.getElementById("onair")
+let bg = document.getElementById("background")
 
+const grabGrain = function() {
+  $(onair).fadeIn("fast", function() {
+    $(this).show().css({visibility: "visible"});
+  });
+  $(bg).show().css({background: "linear-gradient(270deg, #d25353, #d1e17a);"})
 
-stopButton.addEventListener('click', function() {
-  shouldStop = true;
-});
+  stopped = false;
+  navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+  .then(handleSuccess);
+}
 
 const handleSuccess = function(stream) {
   const options = {mimeType: 'audio/webm'};
@@ -15,13 +21,17 @@ const handleSuccess = function(stream) {
 
   mediaRecorder.addEventListener('dataavailable', function(e) {
     if (e.data.size > 0) {
-      console.log(e.data.size);
+      //console.log(e.data.size);
       recordedChunks.push(e.data);
     }
 
-    if(shouldStop === true && stopped === false) {
+    if(recordedChunks.length >= 3 && stopped === false) {
+      $(onair).fadeOut("fast", function() {
+        $(this).show().css({visibility: "hidden"});
+      });
+      $(bg).show().css({background: "linear-gradient(270deg, #93fbf5, #e4a261)"})
       mediaRecorder.stop();
-      console.log("stop")
+      console.log("stop recording")
       stopped = true;
     }
   });
@@ -29,8 +39,6 @@ const handleSuccess = function(stream) {
   mediaRecorder.addEventListener('stop', function() {
     const audioBlob = new Blob(recordedChunks);
     const link = URL.createObjectURL(audioBlob);
-    downloadLink.href = link;
-    downloadLink.download = 'test.wav';
 
     // pack the Blob into a form
     var fd = new FormData();
@@ -42,13 +50,24 @@ const handleSuccess = function(stream) {
       type: "POST",
       url: "/upload",
       data: fd,
+      success: function() {console.log("sent grain to server")},
       processData: false,
       contentType: false
     })
   });
 
   mediaRecorder.start(1000);
+  console.log("start recording")
+
 };
 
-navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-    .then(handleSuccess);
+// at random interval grab a new grain and send to the server
+(function loop() {
+    var rand = Math.round(Math.random() * 60000) + 10000;
+    rand = 10000;
+    console.log("next grain in", rand/1000, "sec");
+    setTimeout(function() {
+            grabGrain();
+            loop();  
+    }, rand);
+}());

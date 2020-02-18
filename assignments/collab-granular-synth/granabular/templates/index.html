@@ -5,19 +5,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
   </head>
-  <body>
+  <body id="background">
     <div class="parent">
       <div>
         <h1 style="text-align: center; font-size: 5em; margin-bottom: 25px;">Granabular</h1>
-        
+
         <form id="form">
           <div class="form-group" >
             <input id="myRange" type="range" name="foo" class="form-control-range" id="formControlRange">
           </div>
         </form>
-        
-        <a class="btn" id="download">Download</a>
-        <a class="btn" id="stop">Stop</a>
+        <p id="onair" style="font-size: 2em; text-align: center; visibility: hidden;"><i>Grain recording...</i></p>
       </div>
     </div>
 

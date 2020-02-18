@@ -59,8 +59,9 @@ def create_app(test_config=None):
 
         # write file to disk
         with open(f"grains/{datecode}.webm", "wb") as f:
-            f.write(audio_data.read())
-
+            pass
+            #f.write(audio_data.read())
+            
         return "ok"
 
     return app
