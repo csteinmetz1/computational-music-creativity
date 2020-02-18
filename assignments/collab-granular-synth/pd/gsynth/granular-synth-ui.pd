@@ -1,0 +1,81 @@
+#N canvas 665 178 764 554 12;
+#X obj 390 299 hsl 200 20 0 1 0 0 pan-spray pan-spray empty -2 -8 0
+10 -262144 -1 -1 0 1;
+#X obj 390 223 hsl 200 20 500 2000 0 0 pitch pitch empty -2 -8 0 10
+-262144 -1 -1 6633 1;
+#X obj 390 262 hsl 200 20 0 0.1 0 0 size size empty -2 -8 0 10 -262144
+-1 -1 12900 1;
+#X text 598 261 size;
+#X text 595 221 pitch;
+#X text 599 299 pan spray;
+#X obj 147 297 hsl 200 20 0 120 0 0 spray spray empty -2 -8 0 10 -262144
+-1 -1 2700 1;
+#X text 99 299 spray;
+#X obj 147 261 hsl 200 20 0 1 0 0 start start empty -2 -8 0 10 -262144
+-1 -1 4900 1;
+#X text 98 260 start;
+#X obj 147 221 hsl 200 20 0.25 50 0 0 density density empty -2 -8 0
+10 -262144 -1 -1 1800 1;
+#X text 84 220 density;
+#X obj 130 421 s grain;
+#X text 197 375 grain filepath;
+#X obj 160 166 tgl 30 0 enable empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X text 109 172 on/off;
+#X text 144 63 volume;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array scope 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 240 57 graph;
+#X obj 197 65 vsl 30 128 0 1 0 0 volume volume empty 0 -9 0 10 -262144
+-1 -1 8400 1;
+#X obj 462 159 hsl 128 15 0 0.5 0 0 wet wet empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 600 156 wet, f 6;
+#X obj 462 182 hsl 128 15 0 1 0 0 roomsize roomsize empty -2 -8 0 10
+-262144 -1 -1 8890 1;
+#X text 598 179 room size;
+#X obj 461 136 hsl 128 15 0 0.5 0 0 dry dry empty -2 -8 0 10 -262144
+-1 -1 12700 1;
+#X text 598 133 dry;
+#X text 498 113 reverb;
+#X obj 530 383 granular-synth;
+#X obj 143 336 hradio 14 1 0 32 empty n-grain empty 0 -8 0 10 -262144
+-1 -1 31;
+#X obj 380 394 bng 15 250 50 0 auto-reset empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 380 412 bng 15 250 50 0 auto-start empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 405 392 5 1 1000 0 - - auto-seconds;
+#X obj 594 407 auto, f 5;
+#X text 445 392 seconds;
+#X text 332 410 start;
+#X text 332 392 reset;
+#X text 373 370 automation;
+#X floatatom 405 413 5 0 0 0 - start -;
+#X text 446 412 progress;
+#X obj 530 407 defaults;
+#X floatatom 340 444 3 1 32 0 - d-voices voices;
+#X text 368 443 voices;
+#X obj 130 376 loadbang;
+#X obj 341 468 bng 15 250 50 0 set-default empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 367 467 default;
+#X floatatom 131 444 12 0 0 0 - fileSize -;
+#X floatatom 131 467 12 0 0 0 - fileSeconds -;
+#X text 224 446 samples;
+#X text 224 469 seconds;
+#X obj 636 383 play;
+#X obj 109 400 bng 15 250 50 0 play empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 71 399 play;
+#X obj 110 422 bng 15 250 50 0 stop empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 71 418 stop;
+#X msg 130 399 ../../grains/bikini.wav;
+#X connect 41 0 53 0;
+#X connect 53 0 12 0;

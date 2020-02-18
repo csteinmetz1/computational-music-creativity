@@ -1,0 +1,24 @@
+#N canvas 897 513 683 543 12;
+#X obj 63 31 mrpeach/udpreceive 4242;
+#X obj 67 68 mrpeach/unpackOSC;
+#X obj 107 145 print;
+#X floatatom 55 139 5 0 0 0 - - -;
+#X obj 60 199 hsl 256 30 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 54 108 mrpeach/routeOSC /sliders/0;
+#X obj 57 236 s start;
+#X obj 49 171 / 100;
+#X obj 284 105 mrpeach/routeOSC /grains;
+#X obj 295 146 print;
+#X obj 343 171 s grain;
+#X obj 343 145 makefilename ../../granabular/grains/%i.wav;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 1 0 8 0;
+#X connect 3 0 7 0;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 3 0;
+#X connect 7 0 4 0;
+#X connect 8 0 9 0;
+#X connect 8 0 11 0;

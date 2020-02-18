@@ -1,0 +1,13 @@
+#N canvas 842 484 569 525 12;
+#X obj 173 111 mrpeach/udpreceive 4242;
+#X obj 173 149 mrpeach/unpackOSC;
+#X obj 265 235 print;
+#X floatatom 216 237 5 0 0 0 - - -;
+#X obj 170 279 hsl 256 30 0 100 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 10200 1;
+#X obj 218 184 mrpeach/routeOSC /sliders/0;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 3 0 4 0;
+#X connect 5 0 2 0;
+#X connect 5 0 3 0;
