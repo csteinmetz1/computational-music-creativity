@@ -1,8 +1,15 @@
+import time
 from osc4py3.as_eventloop import *
 from osc4py3 import oscbuildparse
 
-# Start the system.
-osc_startup()
+def send_slider_value(id, value):
+    # Build a message with autodetection of data types, and send it.
+    msg = oscbuildparse.OSCMessage(f"/sliders/{id}", ",i", [value])
+    osc_send(msg, "Pd")
+    osc_process()
 
-# Make client channels to send packets.
-osc_udp_client("192.168.0.4", 2781, "aclientname")
+def send_grain_file(value):
+    # Build a message with autodetection of data types, and send it.
+    msg = oscbuildparse.OSCMessage(f"/grains", ",i", [value])
+    osc_send(msg, "Pd")
+    osc_process()

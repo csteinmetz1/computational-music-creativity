@@ -26,7 +26,7 @@ const handleSuccess = function(stream) {
       recordedChunks.push(e.data);
     }
 
-    if(recordedChunks.length >= 3 && stopped === false) {
+    if(recordedChunks.length >= 9 && stopped === false) {
       $(onair).fadeOut("slow", function() {
         $(this).show().css({visibility: "hidden"});
       });

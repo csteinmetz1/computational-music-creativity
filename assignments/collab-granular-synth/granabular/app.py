@@ -1,10 +1,18 @@
 import os
+import time
 import base64
 import datetime
+import soundfile
+import subprocess
+import numpy as np
 
 from flask import Flask, url_for, request
 from flask import render_template
 import werkzeug
+
+from osc4py3.as_eventloop import *
+from osc4py3 import oscbuildparse
+from osc import send_slider_value, send_grain_file
 
 def create_app(test_config=None):
     # create and configure the app
@@ -33,6 +41,10 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    # setup OSC comms to localhost
+    osc_startup()
+    osc_udp_client("127.0.0.1", 4242, "Pd")
+
     # a simple page that says hello
     @app.route("/",  methods = ["GET", "POST"])
     def root():
@@ -41,10 +53,11 @@ def create_app(test_config=None):
             message = "Granabular"
             return render_template("index.html", message=message)
 
-        # receive changes for the slider
+        # receive changes for the slider and send via OSC
         if request.method == "POST":
             data = request.form
             print(request.form)
+            send_slider_value(0, data['slider'])
 
             return "ok"
 
@@ -55,13 +68,34 @@ def create_app(test_config=None):
         audio_data = request.files["audioData"]
 
         # create datacode for new filename
-        datecode = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        datecode = datetime.datetime.now().strftime("%H%M%S")
+        webmfilepath = f"grains/{datecode}.webm"
+        wavfilepath  = f"grains/{datecode}.wav"
 
         # write file to disk
-        #with open(f"grains/{datecode}.webm", "wb") as f:
-        #    pass
-        #    #f.write(audio_data.read())
-            
+        with open(webmfilepath, "wb") as f:
+            f.write(audio_data.read())
+        
+        # convert webm to wav file with ffmpeg
+        subprocess.run(["ffmpeg",  "-i",  webmfilepath, \
+        "-ac", "1", "-f", "wav", wavfilepath,  "-loglevel", "quiet"])
+
+        # remove the webm file
+        os.remove(webmfilepath)
+
+        # check if the file is silent otherwise normalize
+        x, sr = soundfile.read(wavfilepath)
+        energy = np.sum(np.power(np.abs(x), 2))/x.shape[0]
+        print(f"grain energy: {energy:0.2e}")
+        if energy >= 1e-3:
+            # normalize and save to disk
+            x /= np.max(np.abs(x))
+            soundfile.write(wavfilepath, x, sr)
+            # send filepath to the new grain via OSC
+            send_grain_file(datecode)
+        else:
+            os.remove(wavfilepath)
+
         return "ok"
 
     return app

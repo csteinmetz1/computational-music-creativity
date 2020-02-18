@@ -12,8 +12,8 @@ body {
 }
 
 .normal {
-  background: linear-gradient(216deg, #a3cecc, #a4c59d);
-  background-size: 200% 200%;
+  background: linear-gradient(270deg, #8cbed1, #9fcc96);
+  background-size: 400% 400%;
 
   -webkit-animation: AnimationName 5s ease infinite;
   -moz-animation: AnimationName 5s ease infinite;
