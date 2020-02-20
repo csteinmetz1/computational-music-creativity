@@ -18,15 +18,16 @@ const grabGrain = function() {
 const handleSuccess = function(stream) {
   const options = {mimeType: 'audio/webm'};
   const recordedChunks = [];
+  let recordedSize = 0;
   const mediaRecorder = new MediaRecorder(stream, options);
 
   mediaRecorder.addEventListener('dataavailable', function(e) {
     if (e.data.size > 0) {
-      //console.log(e.data.size);
+      recordedSize += e.data.size;
       recordedChunks.push(e.data);
     }
 
-    if(recordedChunks.length >= 9 && stopped === false) {
+    if(recordedSize >= 60000 && stopped === false) {
       $(onair).fadeOut("slow", function() {
         $(this).show().css({visibility: "hidden"});
       });

@@ -1,6 +1,7 @@
 import os
 import time
 import base64
+import random
 import datetime
 import soundfile
 import subprocess
@@ -13,6 +14,8 @@ import werkzeug
 from osc4py3.as_eventloop import *
 from osc4py3 import oscbuildparse
 from osc import send_slider_value, send_grain_file
+
+sliders = [(0, "start"), (1, "density"), (2, "spray"), (3, "pitch"), (4, "grain"), (5, "size"), (6, "pan spray")]
 
 def create_app(test_config=None):
     # create and configure the app
@@ -50,15 +53,13 @@ def create_app(test_config=None):
     def root():
         # serve the page
         if request.method == "GET":
-            message = "Granabular"
-            return render_template("index.html", message=message)
+            slider = random.choice(sliders)
+            return render_template("index.html", slider=slider)
 
         # receive changes for the slider and send via OSC
         if request.method == "POST":
             data = request.form
-            print(request.form)
-            send_slider_value(0, data['slider'])
-
+            send_slider_value(data['slider_id'], data['slider_val'])
             return "ok"
 
     @app.route("/upload", methods = ["POST"])

@@ -1,6 +1,10 @@
-<!-- templates/index.html -->
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Granabular</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
@@ -8,11 +12,13 @@
   <body>
     <div id="container" class="parent normal">
       <div>
-        <h1 style="text-align: center; font-size: 5em; margin-bottom: 25px;">Granabular</h1>
+        <h1 style="text-align: center; font-size: 5em;">Granabular</h1>
 
         <form id="form">
           <div class="form-group" >
-            <input id="myRange" type="range" name="slider" class="form-control-range" id="formControlRange">
+            <input name="slider_id" value="{{slider[0]}}" style="visibility: hidden;"></label>
+            <input id="myRange" type="range" name="slider_val" class="form-control-range slider" id="formControlRange">
+            <p style="font-size: 1.5em; font-weight: 200; text-align: center;">{{slider[1]}}</p>
           </div>
         </form>
         <p id="onair" style="font-size: 2em; font-weight: 200; text-align: center; visibility: hidden;"><i>Grain recording...</i></p>
