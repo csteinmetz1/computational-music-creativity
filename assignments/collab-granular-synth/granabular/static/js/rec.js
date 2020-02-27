@@ -64,6 +64,9 @@ const handleSuccess = function(stream) {
 
 };
 
+navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+.then();
+
 // at random interval grab a new grain and send to the server
 (function loop() {
     var rand = Math.round(Math.random() * 60000) + 10000;
