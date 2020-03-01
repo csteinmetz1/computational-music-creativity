@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Granabular | {{slider[1]}} </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <div id="container" class="parent normal">
+      <div>
+        <h1 style="text-align: center; font-size: 5em;">Granabular</h1>
+        <form id="form" class="fade-in one">
+          <div class="form-group" >
+            <input name="slider_id" value="{{slider[0]}}" style="visibility: hidden;"></label>
+            <input id="myRange" type="range" name="slider_val" class="form-control-range slider" id="formControlRange">
+            <p style="font-size: 1.5em; font-weight: 200; text-align: center;">{{slider[1]}}</p>
+          </div>
+        </form>
+        <p style="text-align: center;">{{slider[2]}}</p>
+        <p id="onair" style="font-size: 2em; font-weight: 200; text-align: center; visibility: hidden;"><i>Grain recording...</i></p>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="{{ url_for('static', filename='js/tx.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/rec.js') }}"></script>
+
+</html>

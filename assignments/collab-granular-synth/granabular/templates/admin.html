@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Granabular | Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <div id="container" class="parent normal">
+      <div class="fade-in one">
+        <h3 style="text-align: center;"> Admin</h3>  
+        <h1 style="text-align: center; font-size: 5em;">Granabular</h1>
+        <table style="width: 100%;">
+            <tbody>
+                {%for i in range(0, len)%} 
+                <tr>
+                    <td><div class="p-2"><h4 style="font-weight: 300;">{{users[i][1]}}</h4></div></td>
+                    <td><a class="btn btn-outline-light btn-block fade-in two">clear</a></td>
+                </tr>
+                {%endfor%} 
+            </tbody>
+        </table>
+        <div class="pt-3">
+            <form action="/admin" method="post">
+                <input value="0,1,2,3,4,5,6" style="visibility: hidden;" name="clear">
+                <button type="submit" class="btn btn-outline-light btn-block fade-in two">clear all</button>
+            </form>
+            <a class="btn btn-outline-light btn-block fade-in two" href="/">home</a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</html>

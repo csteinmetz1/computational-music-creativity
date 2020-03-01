@@ -15,7 +15,14 @@ from osc4py3.as_eventloop import *
 from osc4py3 import oscbuildparse
 from osc import send_slider_value, send_grain_file
 
-sliders = [(0, "start"), (1, "density"), (2, "spray"), (3, "pitch"), (4, "grain"), (5, "size"), (6, "pan spray")]
+sliders = [(0, "start", "Control where in the current sound grains are generated from."), 
+           (1, "density", "Control how often new grains are triggered."),
+           (2, "spray", "Control the level of variation in where grains are generated from."), 
+           (3, "pitch", "Transpose the pitch of the sound."), 
+           (4, "grain", "Change the current source file from which grains are generated."), 
+           (5, "size", "Control the size of each grain that is generated."), 
+           (6, "pan spray", "Control how wide grains are panned across the stereo field.")]
+users = []
 
 def create_app(test_config=None):
     # create and configure the app
@@ -49,18 +56,40 @@ def create_app(test_config=None):
     osc_udp_client("127.0.0.1", 4242, "Pd")
 
     # a simple page that says hello
-    @app.route("/",  methods = ["GET", "POST"])
+    @app.route("/")
     def root():
-        # serve the page
+        return render_template("index.html")
+
+    @app.route("/join", methods = ["GET", "POST"])
+    def join():
         if request.method == "GET":
-            slider = random.choice(sliders)
-            return render_template("index.html", slider=slider)
+            if len(users) < len(sliders):
+                num_users = len(users) 
+                users.append(sliders[num_users])
+                return render_template("controller.html", slider=sliders[num_users])
+            else:
+                return render_template("occupied.html")
 
         # receive changes for the slider and send via OSC
         if request.method == "POST":
             data = request.form
             send_slider_value(data['slider_id'], data['slider_val'])
             return "ok"
+
+    @app.route("/admin", methods = ["GET", "POST"])
+    def admin():
+        global users
+        global sliders
+
+        if request.method == "GET":
+            return render_template("admin.html", users=users, len=len(users))
+
+        if request.method == "POST":
+            data = request.form
+            sliders_to_clear = [int(s) for s in data['clear'].split(',')]
+            for s in sliders_to_clear[::-1]:
+                del users[s]
+            return render_template("admin.html", users=users, len=len(users))
 
     @app.route("/upload", methods = ["POST"])
     def upload():
