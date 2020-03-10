@@ -87,8 +87,9 @@ def create_app(test_config=None):
         if request.method == "POST":
             data = request.form
             sliders_to_clear = [int(s) for s in data['clear'].split(',')]
-            for s in sliders_to_clear[::-1]:
-                del users[s]
+            #for s in sliders_to_clear[::-1]:
+            #    del users[s]
+            users = []
             return render_template("admin.html", users=users, len=len(users))
 
     @app.route("/upload", methods = ["POST"])
@@ -108,7 +109,7 @@ def create_app(test_config=None):
         
         # convert webm to wav file with ffmpeg
         subprocess.run(["ffmpeg",  "-i",  webmfilepath, \
-        "-ac", "1", "-f", "wav", wavfilepath,  "-loglevel", "quiet"])
+        "-ac", "1", "-f", "wav", wavfilepath, "-r", "44100", "-loglevel", "quiet"])
 
         # remove the webm file
         os.remove(webmfilepath)
