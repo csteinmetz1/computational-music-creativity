@@ -1,12 +1,12 @@
-#N canvas 113 494 840 491 12;
-#X obj 63 31 mrpeach/udpreceive 4242;
+#N canvas 18 461 840 491 12;
+#X obj 64 17 mrpeach/udpreceive 4242;
 #X obj 63 55 mrpeach/unpackOSC;
 #X obj 76 117 print;
 #X floatatom 63 177 5 0 0 0 - - -;
 #X obj 63 226 s start;
 #X obj 63 201 / 100;
-#X obj 481 83 mrpeach/routeOSC /grains;
-#X obj 468 113 print;
+#X obj 513 107 mrpeach/routeOSC /grains;
+#X obj 471 179 print;
 #X obj 63 91 mrpeach/routeOSC /sliders;
 #X floatatom 118 265 5 0 0 0 - - -;
 #X obj 118 314 s density;
@@ -22,43 +22,44 @@
 #X obj 137 206 * 1.2;
 #X obj 205 291 * 20;
 #X obj 278 292 / 1000;
-#X obj 514 328 cyclone/coll;
+#X obj 515 394 cyclone/coll;
 #C restore;
-#X msg 514 301 \$1 \$2;
-#X obj 514 353 s grain;
-#X obj 418 223 r load-grain;
-#X obj 524 222 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X msg 515 367 \$1 \$2;
+#X obj 515 419 s grain;
+#X obj 419 289 r load-grain;
+#X obj 525 288 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 514 194 int 1;
-#X floatatom 514 241 5 0 0 0 - - -;
-#X obj 562 193 + 1;
-#X obj 514 172 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 515 260 int 1;
+#X floatatom 515 307 5 0 0 0 - - -;
+#X obj 563 259 + 1;
+#X obj 515 238 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 590 165 reset;
-#X text 599 194 increment amount;
-#X msg 546 166 1, f 4;
-#X obj 514 137 t b s;
-#X obj 514 270 pack f s, f 20;
+#X text 591 231 reset;
+#X text 600 260 increment amount;
+#X msg 547 232 1, f 4;
+#X obj 515 203 t b s;
+#X obj 515 336 pack f s, f 20;
 #X obj 213 204 t b;
-#X obj 428 353 print grain;
-#X obj 473 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 429 419 print grain;
+#X obj 474 312 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 446 314 5 0 0 0 - - -;
-#X obj 446 265 random 1;
+#X floatatom 447 380 5 0 0 0 - - -;
+#X obj 447 331 random 1;
 #X obj 63 142 mrpeach/routeOSC /0 /1 /2 /3 /4 /5 /6;
 #X floatatom 318 179 5 0 0 0 - - -;
 #X obj 318 228 s pan-spray;
 #X obj 318 203 / 100;
-#X msg 570 302 clear;
-#X obj 445 290 + 1;
-#X obj 514 111 makefilename ../granabular/grains/%i.wav;
+#X msg 571 368 clear;
+#X obj 446 356 + 1;
+#X obj 515 178 makefilename ../granabular/grains/%s.wav;
+#X obj 514 130 symbol;
+#X msg 515 154 symbol \$1;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 1 0 8 0;
 #X connect 3 0 5 0;
 #X connect 5 0 4 0;
-#X connect 6 0 7 0;
-#X connect 6 0 48 0;
+#X connect 6 0 49 0;
 #X connect 8 0 2 0;
 #X connect 8 0 42 0;
 #X connect 9 0 19 0;
@@ -101,3 +102,6 @@
 #X connect 46 0 23 0;
 #X connect 47 0 40 0;
 #X connect 48 0 35 0;
+#X connect 49 0 50 0;
+#X connect 50 0 48 0;
+#X connect 50 0 7 0;

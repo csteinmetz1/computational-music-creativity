@@ -1,0 +1,14 @@
+cffi==1.14.0
+Click==7.0
+cryptography==2.8
+Flask==1.1.1
+itsdangerous==1.1.0
+Jinja2==2.11.1
+MarkupSafe==1.1.1
+numpy==1.18.1
+osc4py3==1.0.8
+pycparser==2.19
+pyOpenSSL==19.1.0
+PySoundFile==0.9.0.post1
+six==1.14.0
+Werkzeug==1.0.0

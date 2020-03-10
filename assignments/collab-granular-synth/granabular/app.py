@@ -1,5 +1,6 @@
 import os
 import time
+import json
 import base64
 import random
 import datetime
@@ -13,7 +14,8 @@ import werkzeug
 
 from osc4py3.as_eventloop import *
 from osc4py3 import oscbuildparse
-from osc import send_slider_value, send_grain_file
+from oscapi import osc
+from fsapi import fsc
 
 sliders = [(0, "start", "Control where in the current sound grains are generated from."), 
            (1, "density", "Control how often new grains are triggered."),
@@ -51,14 +53,19 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # setup OSC comms to localhost
-    osc_startup()
-    osc_udp_client("127.0.0.1", 4242, "Pd")
+    oscclient = osc()
+    fsclient = fsc()
 
-    # a simple page that says hello
+    # top level page
     @app.route("/")
     def root():
         return render_template("index.html")
+
+    # page with project description
+    @app.route("/about")
+    def about():
+        send_grain_file("test123")
+        return render_template("about.html")
 
     @app.route("/join", methods = ["GET", "POST"])
     def join():
@@ -72,8 +79,17 @@ def create_app(test_config=None):
 
         # receive changes for the slider and send via OSC
         if request.method == "POST":
-            data = request.form
-            send_slider_value(data['slider_id'], data['slider_val'])
+            data = request.get_json()
+            if 'slider_id' in data:
+                oscclient.send_slider_value(data['slider_id'], data['slider_val'])
+            elif 'keyword' in data:
+                wavfilepaths = fsclient.download_grains(data['keyword'], n=np.random.randint(1, high=3))
+                for wavfilepath in wavfilepaths:
+                    grain = os.path.basename(wavfilepath).replace(".wav", "")
+                    oscclient.send_grain_file(grain)
+            else:
+                pass
+
             return "ok"
 
     @app.route("/admin", methods = ["GET", "POST"])
@@ -100,8 +116,8 @@ def create_app(test_config=None):
 
         # create datacode for new filename
         datecode = datetime.datetime.now().strftime("%H%M%S")
-        webmfilepath = f"grains/{datecode}.webm"
-        wavfilepath  = f"grains/{datecode}.wav"
+        webmfilepath = f"grains/mic{datecode}.webm"
+        wavfilepath  = f"grains/mic{datecode}.wav"
 
         # write file to disk
         with open(webmfilepath, "wb") as f:
@@ -118,12 +134,12 @@ def create_app(test_config=None):
         x, sr = soundfile.read(wavfilepath)
         energy = np.sum(np.power(np.abs(x), 2))/x.shape[0]
         print(f"grain energy: {energy:0.2e}")
-        if energy >= 1e-3:
+        if energy >= 1e-4:
             # normalize and save to disk
             x /= np.max(np.abs(x))
             soundfile.write(wavfilepath, x, sr)
             # send filepath to the new grain via OSC
-            send_grain_file(datecode)
+            oscclient.send_grain_file("mic"+datecode)
         else:
             os.remove(wavfilepath)
 

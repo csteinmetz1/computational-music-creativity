@@ -25,7 +25,20 @@ source env/bin/activate
 pip install requirements.txt
 ```
 
-Launch the Flask server
+Install [Freesound Python API client](https://github.com/MTG/freesound-python)
+```
+git clone https://github.com/MTG/freesound-python.git
+cd freesound-python
+python setup.py install
+```
+
+And then get an API key from [here](https://freesound.org/apiv2/apply/) 
+and store it in an environment variable.
+```
+export FREESOUND_API_KEY=YOUR_KEY_HERE
+```
+
+Finally launch the Flask server.
 ```
 export FLASK_ENV=development
 flask run --host 0.0.0.0 --cert=adhoc

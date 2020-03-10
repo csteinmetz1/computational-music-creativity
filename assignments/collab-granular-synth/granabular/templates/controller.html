@@ -13,7 +13,7 @@
     <div id="container" class="parent normal">
       <div>
         <h1 style="text-align: center; font-size: 5em;">Granabular</h1>
-        <form id="form" class="fade-in one">
+        <form id="sliderForm" class="fade-in one">
           <div class="form-group" >
             <input name="slider_id" value="{{slider[0]}}" style="visibility: hidden;"></label>
             <input id="myRange" type="range" name="slider_val" class="form-control-range slider" id="formControlRange">
@@ -22,6 +22,15 @@
         </form>
         <p style="text-align: center;">{{slider[2]}}</p>
         <p id="onair" style="font-size: 2em; font-weight: 200; text-align: center; visibility: hidden;"><i>Grain recording...</i></p>
+
+        <div>
+          <form id="keywordForm" class="fade-in two">
+            <div class="form-group">
+              <input type="text" class="form-control" name="keyword" placeholder="Enter keyword">
+            </div>
+            <button class="btn btn-outline-light">search</button>
+          </form>
+        </div>
       </div>
     </div>
   </body>
