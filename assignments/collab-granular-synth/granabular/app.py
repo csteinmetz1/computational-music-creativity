@@ -17,6 +17,9 @@ from osc4py3 import oscbuildparse
 from oscapi import osc
 from fsapi import fsc
 
+
+REC = False # whether or not to activate client side grain recording
+
 sliders = [(0, "start", "Control where in the current sound grains are generated from."), 
            (1, "density", "Control how often new grains are triggered."),
            (2, "spray", "Control the level of variation in where grains are generated from."), 
@@ -72,7 +75,7 @@ def create_app(test_config=None):
             if len(users) < len(sliders):
                 num_users = len(users) 
                 users.append(sliders[num_users])
-                return render_template("controller.html", slider=sliders[num_users])
+                return render_template("controller.html", slider=sliders[num_users], rec=REC)
             else:
                 return render_template("occupied.html")
 

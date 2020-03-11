@@ -26,9 +26,9 @@
         <div>
           <form id="keywordForm" class="fade-in two">
             <div class="form-group">
-              <input type="text" class="form-control" name="keyword" placeholder="Enter keyword">
+              <input type="text" class="form-control" name="keyword" placeholder="Enter a sound keyword...">
             </div>
-            <button class="btn btn-outline-light">search</button>
+            <button class="btn btn-outline-light btn-block">search</button>
           </form>
         </div>
       </div>
@@ -36,6 +36,9 @@
   </body>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="{{ url_for('static', filename='js/tx.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/rec.js') }}"></script>
+
+  {% if rec %}
+    <script src="{{ url_for('static', filename='js/rec.js') }}"></script>
+  {% endif %}
 
 </html>
