@@ -1,7 +1,7 @@
 # Granabular 
 A collaborative granular synth
 
-<img src="img/main.png" height="500px">
+<img src="img/controller.png" >
 
 ## Overview
 
