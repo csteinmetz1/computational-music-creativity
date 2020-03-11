@@ -66,7 +66,6 @@ def create_app(test_config=None):
     # page with project description
     @app.route("/about")
     def about():
-        send_grain_file("test123")
         return render_template("about.html")
 
     @app.route("/join", methods = ["GET", "POST"])

@@ -5,15 +5,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Granabular | About</title>
+    <title>Granabular | about</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
   </head>
   <body>
     <div id="container" class="parent normal">
       <div class="fade-in one">
-        <h1 style="text-align: center; font-size: 5em;">About</h1>
-        <p style="text-align: center;"> a collaborative granular synthesizer</p>  
+        <h1 style="text-align: center; font-size: 5em;">about</h1>
+        <h5 style="text-align: center;"><strong>Granabular</strong>: a collaborative granular synthesizer</h5> 
+        <div style="width: 550px;">
+          <p class="pt-3" style="text-align: justify;">
+            A <a href="https://en.wikipedia.org/wiki/Granular_synthesis" target="_blank">granular synthesizer</a>
+            is a sound creation device that takes recordings, chops them into tiny pieces,
+            and then plays them back at a rapid rate to create a new sound experience. This project aims to extend
+            this sound creation experience by enabling multiple users to control a single granular synthesizer
+            in real-time, remotely, from their web browser. 
+          </p>  
+          <p style="text-align: justify;">
+            When a user joins the session they will be assigned a single parameter to control. Each user
+            will be given a unique parameter and once all parameters are claimed, the session will be 
+            set as occupied and no users can join. In addition to the parameter, the user also has the ability
+            to add grains to the collective <em>grain bucket</em> by entering search keywords, which will 
+            locate and save related sound clips. If enabled, users will also be periodically notified that
+            their microphone is recording so as to make some noise that will be sent to the <em>grain bucket</em>.
+          </p>
+          <p>This project is open-source and available on GitHub.</p>
+          <div class="d-flex justify-content-center">
+            <a class="btn btn-outline-light btn-sm m-2 btn-block" href="https://github.com/csteinmetz1/computational-music-creativity/tree/master/assignments/collab-granular-synth" target="_blank">github</a>
+            <a class="btn btn-outline-light btn-sm m-2 btn-block" href="" target="_blank">demo</a>
+            <a class="btn btn-outline-light btn-sm m-2 btn-block" href="" target="_blank">blogpost</a>
+            <a class="btn btn-outline-light btn-sm m-2 btn-block" href="/">back</a>
+          </div>
+        </div>
+
 
       </div>
     </div>
