@@ -31,8 +31,10 @@ $(function(){
 
     var keywordForm = $('#keywordForm');
     $('#keywordForm').submit(function(){
-        console.log(keywordForm.serialize())
         event.preventDefault();
+        if (keywordForm.serialize() == "keyword="){
+            return 
+        }
         var jsonText = JSON.stringify($('#keywordForm').serializeObject());
         $.ajax({
             type: "POST",

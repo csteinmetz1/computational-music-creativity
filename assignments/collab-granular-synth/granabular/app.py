@@ -17,7 +17,6 @@ from osc4py3 import oscbuildparse
 from oscapi import osc
 from fsapi import fsc
 
-
 REC = False # whether or not to activate client side grain recording
 
 sliders = [(0, "start", "Control where in the current sound grains are generated from."), 
