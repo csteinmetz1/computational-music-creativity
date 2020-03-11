@@ -21,9 +21,8 @@ sliders = [(0, "start", "Control where in the current sound grains are generated
            (1, "density", "Control how often new grains are triggered."),
            (2, "spray", "Control the level of variation in where grains are generated from."), 
            (3, "pitch", "Transpose the pitch of the sound."), 
-           (4, "grain", "Change the current source file from which grains are generated."), 
-           (5, "size", "Control the size of each grain that is generated."), 
-           (6, "pan spray", "Control how wide grains are panned across the stereo field.")]
+           (4, "size", "Control the size of each grain that is generated."), 
+           (5, "pan spray", "Control how wide grains are panned across the stereo field.")]
 users = []
 
 def create_app(test_config=None):

@@ -33,6 +33,14 @@ this is an okay behaviour because it gives us a nice starting point
 when we load a difference grain (since some of the controls depend
 on the volume \, length \, quality \, etc. of the grain.);
 #X msg 493 117 0.5;
+#X msg 593 264 5;
+#X msg 507 262 0.5;
+#X obj 557 232 bng 15 250 50 0 empty set-default empty 17 7 0 10 -262144
+-1 -1;
+#X obj 557 210 t b;
+#X obj 557 186 r set-default;
+#X obj 507 289 s min-swap;
+#X obj 593 289 s max-swap;
 #X connect 2 0 1 0;
 #X connect 4 0 3 0;
 #X connect 6 0 2 0;
@@ -52,3 +60,9 @@ on the volume \, length \, quality \, etc. of the grain.);
 #X connect 20 0 6 0;
 #X connect 23 0 20 0;
 #X connect 26 0 13 0;
+#X connect 27 0 33 0;
+#X connect 28 0 32 0;
+#X connect 29 0 28 0;
+#X connect 29 0 27 0;
+#X connect 30 0 29 0;
+#X connect 31 0 30 0;
