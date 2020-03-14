@@ -616,7 +616,8 @@
    \def\thefootnote{\fnsymbol{footnote}}
    \def\@makefnmark{\hbox
        to 0pt{$^{\@thefnmark}$\hss}}
-     \twocolumn[\@maketitle]
+     \twocolumn[\@maketitle
+     \vspace{0cm}]
 \@thanks
  \endgroup
  \setcounter{footnote}{0}
