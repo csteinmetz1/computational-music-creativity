@@ -96,20 +96,20 @@ but such methods proved challenging given their technological limitations \cite{
 As digital audio technologies evolved granular synthesis techniques became more accessible and composers 
 such as Barry Truax \cite{truax1988real} and Curtis Roads \cite{roads1988granular} became heavily involved 
 in the development of digital systems for granular synthesis. As the technology has evolved, 
-many commercial devices have been developed that provide composers and musicians with the ability to perform granular synthesis with ease. 
+commercial devices have been developed that provide composers with the ability to perform granular synthesis with ease. 
 
 Granabular aims to extend upon these past implementations of granular synthesis, not with the introduction of new synthesis techniques, 
 but with a new method of human-computer interaction in the compositional process through a collaborative system. 
 While previous collaborative synthesis systems have been proposed, the contributions of this work are two-fold:
 
 \begin{enumerate}
-	\item A minimalist user interface that requires no knowledge of synthesis techniques.
-	\item Sourcing of grains from microphones of user devices and interactive from the Freesound API. 
+	\item A minimalist user interface that requires no knowledge of granular synthesis techniques.
+	\item Sourcing of grains from microphones in user devices as well as interaction with the Freesound API. 
 \end{enumerate}
 
 By enabling multiple users to connect to the same granular engine simultaneously, 
 each with control over a unique parameter, no single user is in complete control of the synthesis process, 
-leading to potentially interesting and unpredictable outcomes. 
+leading to potentially interesting and unpredictable evolution of the performance. 
 
 \section{Related work}
 
@@ -164,7 +164,7 @@ which are also shown within the user interface in Figure \ref{fig:engine}.
 \begin{itemize}
 	\item density: rate at which new grains are triggered
 	\item start: position in the source file for grains
-	\item pitch: the relative pitch of the 
+	\item pitch: the relative pitch of the grain
 	\item size: length of the grains
 	\item start spray: degree of variation in starting position
 	\item pan spray: degree of variation in spatialisation
@@ -199,7 +199,7 @@ Once they are generated they will be placed in what is known the the \emph{grain
 as well as the path to their location. 
 Within the synthesizer there is another clock which at random intervals 
 will swap the current source file to another source file within the grain bucket. 
-Therefore, as the number of source files grows, the possible diversity in performance grows as wel..
+Therefore, as the number of source files grows, the possible diversity in performance grows as well.
 
 \subsection{Web client}
 
@@ -250,12 +250,12 @@ If additional users attempt to join a session they will see a message indicating
 
 The web server functions as the main intermediary between the synthesis engine and the web client.
 As shown in Figure \ref{fig:block-diagram}, POST and GET requests over HTTP are used for communication between the web server and the client,
-and OSC (open sound control) messages are used to communicate the Pure data patch. 
+and OSC (Open Sound Control) messages are used to communicate with the Pure data patch. 
 An event listener responds whenever the user changes the slider and this sends a POST request to the server with the current value.
 The server then relays this information to Pure data by sending an appropriate OSC message. 
 
 When the user submits a search query, this string is sent to the web server, which then uses the Freesound API in order to find candidate recordings. 
-A recording is selected at random from this list, it is then downloaded, converted to a to the WAV format at 16 bit 44.1 kHz using FFmpeg\footnote{https://www.ffmpeg.org/}, 
+A recording is selected at random from this list, it is then downloaded, converted to the WAV format at 16 bit 44.1 kHz using FFmpeg\footnote{https://www.ffmpeg.org/}, 
 and finally an OSC message is sent to the patch to inform it of the location of the latest addition to the \emph{grain bucket}.
 In a similar fashion, once a recording has been made with the user's microphone, it is sent to the server, converted, and it's location forwarded onto the patch.
 In the case of recordings made from user microphones, a bit of extra processing is performed. 
@@ -266,25 +266,24 @@ If the recording does in fact contain significant signal we then peak normalize 
 
 Granabular serves as an early prototype of the idea for a collaborative granular synthesizer.
 For that reason there are a number of ways in which to extend or make the system more robust.
-Additionally this prototype has been demonstrated in a live, multi-user performance, and
-from this early experiment a number of areas of improvement have been additionally identified. 
+Additionally, this prototype has been demonstrated in a live, multi-user performance, and
+from this early experiment a number of areas of improvement have been identified. 
 
 One of the known limitations comes from the structure of the communication between the client 
 and the server. Currently simple HTTP GET and POST requests are used. 
-While these method work they do not allow for continuous communication between the systems.
+While these methods work, they do not allow for continuous communication between the systems.
 To improve this we propose to use web sockets which would allow for continuous communication.
 This could potentially lower latency in parameter control and also allow for the server to 
 identify when a user has disconnected (closed the browser) so as to open this slot of the session to new users. 
 
-Another improvement could be made by apply pre-processing to the parameter control signals. 
-Currently whenever a slider is adjusted the instantaneous value is sent to the synthesizer. 
-This can often cause in wanted effects if there is a lag in communication, resulting in a jerking sound.
-Simply applying a filter to reduce the rate at which such parameter can be adjusted would help to 
-alleviate this issue. 
+Another improvement could be made by apply pre-processing to the parameter control signals.
+Currently whenever a slider is adjusted, the instantaneous value is sent to the synthesizer. 
+This can often cause wanted effects if there is a lag in communication, resulting in a jerking sound.
+Simply applying a filter to reduce the rate at which such parameters can be adjusted would help to alleviate this issue. 
 
-Finally, additional post-processing could be performed to the recordings downloaded from Freesound.
+Finally, additional post-processing could be performed on the recordings downloaded from Freesound.
 During our demonstration, we found that many recordings downloaded included large sections of silence.
-Simple post processing could be used to delete regions of silence to ensure that the source files
+Simple post processing could be used to remove regions of silence, ensuring the source files
 used in the synthesizer contain audible content at all times. 
 
 \section{Conclusions}
@@ -297,7 +296,7 @@ The client facing interface has been designed following minimalist principles in
 facilitate participation from both experienced and novice users alike.  
 We demonstrated the operation of this system in an interactive performance where multiple
 users connected to the system and concurrently controlled different parameters of the synthesizer
-to successfully generate an acoustic experience.
+to successfully generate an evolving acoustic experience.
 
 %ACKNOWLEDGMENTS are optional
 %\section{Acknowledgments}
